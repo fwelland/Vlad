@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+    xmlns:f="http://xmlns.jcp.org/jsf/core"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:jsf="http://xmlns.jcp.org/jsf">
+    <head>
+        <title>validation test</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+    <body>
+        <div>Cool Stuff</div>
+        <h:form id="peepForm" prependId="false">
+            <div>
+                <h:messages globalOnly="false"/>
+            </div>
+            <br></br>
+            <div>
+                <label for="peepName">name:  </label>
+                <h:inputText type="text" id="peepName" value="#{peep.name}">
+                    <f:validateBean disabled="true"/>
+                </h:inputText>
+            </div>
+            <div> 
+                <label for="peepTitle">title:  </label>
+                <input type="text" jsf:id="peepTitle" jsf:value="#{peep.title}"/>
+            </div>
+            <br></br>
+            <button  jsf:id="peepButton" jsf:action="#{peep.go}">push me</button>
+        </h:form>
+    </body>
+</html>
