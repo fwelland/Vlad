@@ -6,7 +6,7 @@ buildscript {
         maven {
             url 'http://dl.bintray.com/fwelland/FredsStuff'
         }
-    }   
+    }
     dependencies {
         classpath 'org.fhw:gradle-flyboss-plugin:20'
     }
@@ -18,14 +18,11 @@ sourceCompatibility = '1.8'
 
 repositories {
     mavenCentral()
-    // You may define additional repositories, or even remove "mavenCentral()".
-    // Read more about repositories here:
-    //   http://www.gradle.org/docs/current/userguide/dependency_management.html#sec:repositories
 }
 
 dependencies {
-    
-    providedCompile 'javax:javaee-api:7.0', 
+
+    providedCompile 'javax:javaee-api:7.0',
                     'org.projectlombok:lombok:1.16.6'
 
     testCompile group: 'junit', name: 'junit', version: '4.10'
@@ -33,8 +30,13 @@ dependencies {
 
 
 flyboss {
-   appserver_home = '/opt/wildfly'
+   //appserver_home = '/opt/wildfly'
+   appserver_home = '/opt/jboss'
    path_to_deployable =  tasks.getByPath('war').archivePath
 }
 
 deploy.dependsOn war
+
+if (project.hasProperty('evaluatingIDE') && project.property('evaluatingIDE') == 'NetBeans') {
+    sourceSets.main.java.srcDir(webAppDir)
+}

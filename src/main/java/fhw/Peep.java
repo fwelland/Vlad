@@ -13,7 +13,7 @@ public class Peep
 {
     public Peep()
     {
-        
+
     }
 
     @PostConstruct
@@ -22,16 +22,13 @@ public class Peep
         System.out.println("I got structed...");
     }
     
-    
-    
-    
     @NotNull(message = "you gotta have a name")
-    private String name; 
-    
+    private String name;
+
     @NotNull(message = "you gotta have a title")
-    private String title; 
-    
-    
+    private String title;
+
+
     public void go()
     {
         System.out.println( " go pushed; name [" + name + "]; title [" + title + "]");

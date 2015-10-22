@@ -10,22 +10,21 @@
     </head>
     <body>
         <div>Cool Stuff</div>
-        <form jsf:id="peepForm" jsf:prependId="false">
+        <h:form id="peepForm" prependId="false">
             <div>
                 <h:messages globalOnly="false"/>
             </div>
             <br></br>
             <div>
                 <label for="peepName">name:  </label>
-                <input type="text" jsf:id="peepName" jsf:value="#{peep.name}">
-                </input>
+                <h:inputText id="peepName" value="#{peep.name}" immediate="true"/>
             </div>
             <div>
                 <label for="peepTitle">title:  </label>
-                <input type="text" jsf:id="peepTitle" jsf:value="#{peep.title}"/>
+                <h:inputText id="peepTitle" value="#{peep.title}"  immediate="true"/>
             </div>
             <br></br>
             <button  jsf:id="peepButton" jsf:action="#{peep.go}">push me</button>
-        </form>
+        </h:form>
     </body>
 </html>
